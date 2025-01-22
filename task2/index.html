@@ -12,12 +12,20 @@
     ul {
       list-style-type: none;
       padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1%;
     }
     li {
       margin: 5px 0;
       padding: 10px;
       background-color: #f0f0f0;
       cursor: pointer;
+      width: 50px;
+      height: 50px;
+      font-size: 30px;
+      font-weight: 900;
+      text-align: center;
     }
     li:hover {
       background-color: #d0d0f5;
@@ -32,8 +40,8 @@
 <body>
   <h1>Event Delegation Example</h1>
   <ul id="item-list">
-    <li>Item 1</li>
-    <li>Item 2</li>
+    <li>1</li>
+    <li>2</li>
   </ul>
   <button id="add-item">Add Item</button>
 
@@ -44,12 +52,13 @@
     itemList.addEventListener('click', function(event) {
       if (event.target && event.target.nodeName === 'LI') {
         console.log('Clicked:', event.target.textContent);
-        event.target.style.backgroundColor = '#c3e6cb';
+        event.target.style.backgroundColor = 'red';
+        event.target.style.color = 'white';
       }
     });
     addItemButton.addEventListener('click', function() {
       const newItem = document.createElement('li');
-      newItem.textContent = `Item ${itemList.children.length + 1}`;
+      newItem.textContent = `${itemList.children.length + 1}`;
       itemList.appendChild(newItem);
     });
   </script>
